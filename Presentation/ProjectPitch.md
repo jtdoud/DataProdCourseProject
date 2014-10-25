@@ -1,39 +1,48 @@
-Project Pitch
+Data Products Course Project: Exploring Use of Force Against Civilians in Armed Conflict
 ========================================================
 author: Tucker Doud
 date: October 15, 2014
 font-family: calibri, arial, helvetica
 transition: rotate
 
-First Slide
+Project Focus
 ========================================================
 
-For more details on authoring R presentations click the
-**Help** button on the toolbar.
+Ever since the Iraq war of 2003, stories of armed conflict in the Middle East have dominated the headlines in western news outlets. Most recently, US led coalition forces have engaged ISIS led militants in Iraq and Syria. The case for military intervention will often use one or both of the following arguments:
+- Self-defence or collective self-defence
+- Humanitarian intervention  
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-Slide With Code
+Project Focus
 ========================================================
+Both of these arguments have been used to justify recent armed mobilizations in the Middle East including Iraq, Syria, and Libya. My project, however, focuses on the argument of _humanitarian intvervention_ to prevent targeted civilian deaths.   
 
+Using data from the [Uppsala Conflict Data Program] (http://www.pcr.uu.se/research/UCDP/) (UCDP) I suggest that if the motivation for war is humanitarian intervention, then Coalition forces may have historically been better used in areas other that the Middle East.
 
-```r
-summary(cars)
-```
-
-```
-     speed           dist    
- Min.   : 4.0   Min.   :  2  
- 1st Qu.:12.0   1st Qu.: 26  
- Median :15.0   Median : 36  
- Mean   :15.4   Mean   : 43  
- 3rd Qu.:19.0   3rd Qu.: 56  
- Max.   :25.0   Max.   :120  
-```
-
-Slide With Plot
+The Data
 ========================================================
+For my application I use the UCDP One-sided Violence Data set. These data track intentional attacks on civilians by state or non-state groups from 1989 to 2013.
 
-![plot of chunk unnamed-chunk-2](ProjectPitch-figure/unnamed-chunk-2.png) 
+The original data set contains the following variables.
+
+```
+ [1] "ActorId"              "CoalitionComponents"  "ActorName"           
+ [4] "Year"                 "BestFatalityEstimate" "LowFatalityEstimate" 
+ [7] "HighFatalityEstimate" "IsGovernmentActor"    "Location"            
+[10] "GWNOLocation"         "Region"               "Version"             
+```
+
+Quick Exploration
+========================================================
+As we can see, targeted civilian deaths are far greater in regions _other than the Middle East_.
+
+```
+Source: local data frame [5 x 2]
+
+       Region Fatalities
+1      Africa     662430
+2        Asia      39248
+3 Middle East      17937
+4      Europe      17637
+5    Americas       9057
+```
+<small>Note: The results above also contain the horrific event of the Rwandan Genocide in 1994 where approximately 500,000 African civilians were murdered. You will see in my app that even when excluding this extreme case, Africa still remains one of the worst areas for targeted civilian deaths.</small>

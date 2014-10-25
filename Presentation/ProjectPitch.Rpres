@@ -1,30 +1,46 @@
-Project Pitch
+Data Products Course Project: Exploring Use of Force Against Civilians in Armed Conflict
 ========================================================
 author: Tucker Doud
 date: October 15, 2014
 font-family: calibri, arial, helvetica
 transition: rotate
 
-First Slide
+Project Focus
 ========================================================
 
-For more details on authoring R presentations click the
-**Help** button on the toolbar.
+Ever since the Iraq war of 2003, stories of armed conflict in the Middle East have dominated the headlines in western news outlets. Most recently, US led coalition forces have engaged ISIS led militants in Iraq and Syria. The case for military intervention will often use one or both of the following arguments:
+- Self-defence or collective self-defence
+- Humanitarian intervention  
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-Slide With Code
+Project Focus
 ========================================================
+Both of these arguments have been used to justify recent armed mobilizations in the Middle East including Iraq, Syria, and Libya. My project, however, focuses on the argument of _humanitarian intvervention_ to prevent targeted civilian deaths.   
 
-```{r}
-summary(cars)
+Using data from the [Uppsala Conflict Data Program] (http://www.pcr.uu.se/research/UCDP/) (UCDP) I suggest that if the motivation for war is humanitarian intervention, then Coalition forces may have historically been better used in areas other that the Middle East.
+
+The Data
+========================================================
+For my application I use the UCDP One-sided Violence Data set. These data track intentional attacks on civilians by state or non-state groups from 1989 to 2013.
+
+The original data set contains the following variables.
+```{r echo=FALSE, cache=T}
+setwd("~/My Dropbox/Education/DataProducts/DataProdCourseProject")
+load("./AppDataPrep/124932_1ucdpone-sidedviolencedataset.1.4-2014.rdata")
+names(ucdpOneSided)
 ```
 
-Slide With Plot
+Quick Exploration
 ========================================================
-
-```{r, echo=FALSE}
-plot(cars)
+As we can see, targeted civilian deaths are far greater in regions _other than the Middle East_. A more detailed time-series will be presented in my app.
+```{r echo=FALSE}
+library(dplyr)
+# convert region to factor
+ucdpOneSided$Region <- factor(x = ucdpOneSided$Region, 
+                       labels = c("Europe", "Middle East", "Asia", "Africa", 
+                                  "Americas"))
+# Compute summary
+group_by(ucdpOneSided, Region) %>%
+        summarise(Fatalities = sum(BestFatalityEstimate)) %>%
+        arrange(desc(Fatalities))
 ```
+<small>Note: The results above also contain the events of the Rwandan Genocide in 1994 where approximately 500,000 African civilians were murdered. You will see in my app that even when excluding this extreme case, Africa still remains one of the worst areas for targeted civilian deaths.</small>
