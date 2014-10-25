@@ -1,17 +1,19 @@
+# Load packages
 library(dplyr)
 library(ggplot2)
 library(scales)
 
+# Set plot theme
 my_theme <- theme_bw() +
     theme(panel.border = element_blank(),
           axis.ticks = element_blank(),
           panel.grid.minor = element_blank(),
           panel.grid.major.x = element_blank(),
-          panel.grid.major.y = element_line(size = 1),
+          panel.grid.major.y = element_line(size = 0.5),
           axis.title = element_text(colour = "grey40"),
           plot.title = element_text(vjust = 2.0))
 
-load("./Data/appData.Rdata")
+load("./Data/appData.Rdata") # Load modified data
 
 shinyServer(
     
@@ -24,7 +26,6 @@ shinyServer(
         })
         
         output$plot <- renderPlot({
-            
             
             filt2 <- switch(input$actor,
                             "Both" = group_by(filt1(), Region, Year) %>%
