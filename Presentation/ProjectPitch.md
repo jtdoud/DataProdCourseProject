@@ -1,7 +1,7 @@
 Data Products Course Project: Exploring Use of Force Against Civilians in Armed Conflict
 ========================================================
 author: Tucker Doud
-date: October 15, 2014
+date: October 25, 2014
 font-family: calibri, arial, helvetica
 transition: rotate
 
@@ -16,11 +16,11 @@ Project Focus
 ========================================================
 Both of these arguments have been used to justify recent armed mobilizations in the Middle East including Iraq, Syria, and Libya. My project, however, focuses on the argument of _humanitarian intvervention_ to prevent targeted civilian deaths.   
 
-Using data from the [Uppsala Conflict Data Program] (http://www.pcr.uu.se/research/UCDP/) (UCDP) I suggest that if the motivation for war is humanitarian intervention, then Coalition forces may have historically been better used in areas other that the Middle East.
+Using data from the [Uppsala Conflict Data Program] (http://www.pcr.uu.se/research/UCDP/) (UCDP) I suggest that if the motivation for war is humanitarian intervention, then history shows that Coalition forces may be better used in areas other that the Middle East.
 
 The Data
 ========================================================
-For my application I use the UCDP One-sided Violence Data set. These data track intentional attacks on civilians by state or non-state groups from 1989 to 2013.
+For my web app I use the UCDP One-sided Violence Data set. These data track intentional attacks on civilians by state or non-state groups from 1989 to 2013.
 
 The original data set contains the following variables.
 
@@ -30,10 +30,11 @@ The original data set contains the following variables.
  [7] "HighFatalityEstimate" "IsGovernmentActor"    "Location"            
 [10] "GWNOLocation"         "Region"               "Version"             
 ```
+Note to grader: knitr echo set to false to save space.
 
 Quick Exploration
 ========================================================
-As we can see, targeted civilian deaths are far greater in regions _other than the Middle East_.
+As we can see, targeted civilian deaths are far greater in regions _other than the Middle East_. A more detailed time-series will be presented in my web app.
 
 ```
 Source: local data frame [5 x 2]
@@ -45,4 +46,4 @@ Source: local data frame [5 x 2]
 4      Europe      17637
 5    Americas       9057
 ```
-<small>Note: The results above also contain the horrific event of the Rwandan Genocide in 1994 where approximately 500,000 African civilians were murdered. You will see in my app that even when excluding this extreme case, Africa still remains one of the worst areas for targeted civilian deaths.</small>
+<small>Note: The results above also contain the event of the Rwandan Genocide in 1994 in which approximately 500,000 African civilians were murdered. You will see in my app that even when excluding this extreme case, Africa still remains one of the worst areas for targeted civilian deaths.</small>

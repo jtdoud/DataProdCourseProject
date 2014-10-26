@@ -7,7 +7,7 @@ shinyUI(
     fluidPage(    
         
         # Give the page a title
-        titlePanel("Targeted Civilian Death Toll in Armed Conflitcs 1989 - 2013"),
+        titlePanel("Targeted Civilian Death Toll in Armed Conflicts 1989 - 2013"),
         
         # Generate a row with a sidebar
         sidebarLayout(      
